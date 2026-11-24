@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 280" width="100%">
+  <style>
+    .bg { fill: #0f172a; stroke: #334155; stroke-width: 1.5; rx: 12; }
+    .title { fill: #f8fafc; font: 700 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; text-anchor: middle; }
+    .status { fill: #94a3b8; font: 600 12px ui-monospace, SFMono-Regular, Menlo, monospace; text-anchor: middle; }
+    .label { fill: #f8fafc; font: 700 13px ui-monospace, SFMono-Regular, Menlo, monospace; text-anchor: middle; dominant-baseline: central; }
+    .tag { fill: #fca5a5; font: 700 11px ui-monospace, SFMono-Regular, Menlo, monospace; text-anchor: middle; }
+    .edge { stroke: #475569; stroke-width: 2.2; stroke-linecap: round; }
+
+    /* 8.5s 3-stage loop:
+       0-26%: Highlight target leaf 10
+       29-55%: Remove 10 -&gt; bf(20) = -2
+       59-94%: left_rotate(20) -&gt; 30 becomes root
+    */
+    .e1 { animation: de1 8.5s ease-in-out infinite; }
+    .e2 { animation: de2 8.5s ease-in-out infinite; }
+    .e3 { animation: de3 8.5s ease-in-out infinite; }
+
+    .n10 { animation: dn10 8.5s ease-in-out infinite; }
+    .n20 { animation: dn20 8.5s ease-in-out infinite; }
+    .n30 { animation: dn30 8.5s ease-in-out infinite; }
+    .n40 { animation: dn40 8.5s ease-in-out infinite; }
+
+    .c20 { animation: dc20 8.5s ease-in-out infinite; }
+    .c30 { animation: dc30 8.5s ease-in-out infinite; }
+    .c40 { animation: dc40 8.5s ease-in-out infinite; }
+
+    .bf-warn { animation: dbf 8.5s ease-in-out infinite; }
+    .s1 { animation: ds1 8.5s ease-in-out infinite; }
+    .s2 { animation: ds2 8.5s ease-in-out infinite; }
+    .s3 { animation: ds3 8.5s ease-in-out infinite; }
+
+    @keyframes de1 { 0%, 25%, 96%, 100% { opacity: 1; } 29%, 94% { opacity: 0; } }
+    @keyframes de2 { 0%, 26%, 58%, 100% { opacity: 0; } 30%, 54% { opacity: 1; } }
+    @keyframes de3 { 0%, 55%, 96%, 100% { opacity: 0; } 60%, 94% { opacity: 1; } }
+
+    @keyframes dn10 { 0%, 25%, 96%, 100% { transform: translate(260px, 140px); opacity: 1; } 29%, 94% { transform: translate(260px, 140px); opacity: 0; } }
+    @keyframes dn20 { 0%, 54%, 96%, 100% { transform: translate(340px, 70px); } 60%, 94% { transform: translate(295px, 145px); } }
+    @keyframes dn30 { 0%, 54%, 96%, 100% { transform: translate(420px, 140px); } 60%, 94% { transform: translate(380px, 70px); } }
+    @keyframes dn40 { 0%, 54%, 96%, 100% { transform: translate(495px, 210px); } 60%, 94% { transform: translate(465px, 145px); } }
+
+    @keyframes dc20 { 0%, 26%, 96%, 100% { fill: #1e293b; stroke: #38bdf8; } 30%, 54% { fill: #7f1d1d; stroke: #ef4444; } 60%, 94% { fill: #064e3b; stroke: #10b981; } }
+    @keyframes dc30 { 0%, 54%, 96%, 100% { fill: #1e293b; stroke: #38bdf8; } 60%, 94% { fill: #064e3b; stroke: #10b981; } }
+    @keyframes dc40 { 0%, 54%, 96%, 100% { fill: #1e293b; stroke: #38bdf8; } 60%, 94% { fill: #064e3b; stroke: #10b981; } }
+
+    @keyframes dbf { 0%, 28%, 55%, 100% { opacity: 0; } 32%, 53% { opacity: 1; } }
+    @keyframes ds1 { 0%, 26%, 96%, 100% { opacity: 1; } 29%, 94% { opacity: 0; } }
+    @keyframes ds2 { 0%, 26%, 57%, 100% { opacity: 0; } 30%, 54% { opacity: 1; } }
+    @keyframes ds3 { 0%, 55%, 96%, 100% { opacity: 0; } 60%, 94% { opacity: 1; } }
+  </style>
+
+  <rect class="bg" x="1" y="1" width="758" height="278" />
+  <text class="title" x="380" y="30">delete(root, 10) on [10, 20, 30, 40]</text>
+
+  
+  <g class="e1">
+    <line class="edge" x1="340" y1="70" x2="260" y2="140" />
+    <line class="edge" x1="340" y1="70" x2="420" y2="140" />
+    <line class="edge" x1="420" y1="140" x2="495" y2="210" />
+  </g>
+
+  
+  <g class="e2">
+    <line class="edge" x1="340" y1="70" x2="420" y2="140" />
+    <line class="edge" x1="420" y1="140" x2="495" y2="210" />
+  </g>
+
+  
+  <g class="e3">
+    <line class="edge" x1="380" y1="70" x2="295" y2="145" />
+    <line class="edge" x1="380" y1="70" x2="465" y2="145" />
+  </g>
+
+  <text class="tag bf-warn" x="285" y="62">bf = -2</text>
+
+  
+  <g class="n10">
+    <circle r="20" fill="#7f1d1d" stroke="#ef4444" stroke-width="2.2" stroke-dasharray="4 3" />
+    <text class="label">10</text>
+  </g>
+  <g class="n20"><circle class="c20" r="20" stroke-width="2.2" /><text class="label">20</text></g>
+  <g class="n30"><circle class="c30" r="20" stroke-width="2.2" /><text class="label">30</text></g>
+  <g class="n40"><circle class="c40" r="20" stroke-width="2.2" /><text class="label">40</text></g>
+
+  
+  <text class="status s1" x="380" y="255">1. Locate target leaf node 10</text>
+  <text class="status s2" x="380" y="255">2. Remove 10 -&gt; ancestor 20 becomes right-heavy (bf = -2)</text>
+  <text class="status s3" x="380" y="255">3. left_rotate(20) -&gt; 30 promoted to root, tree balanced (bf = 0)</text>
+</svg>

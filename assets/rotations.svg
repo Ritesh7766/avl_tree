@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 280" width="100%">
+  <style>
+    .bg { fill: #0f172a; stroke: #334155; stroke-width: 1.5; rx: 12; }
+    .divider { stroke: #1e293b; stroke-width: 1.5; }
+    .title { fill: #f8fafc; font: 700 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; text-anchor: middle; }
+    .status { fill: #94a3b8; font: 600 12px ui-monospace, SFMono-Regular, Menlo, monospace; text-anchor: middle; }
+    .label { fill: #f8fafc; font: 700 13px ui-monospace, SFMono-Regular, Menlo, monospace; text-anchor: middle; dominant-baseline: central; }
+    .bf { fill: #cbd5e1; font: 600 10px ui-monospace, SFMono-Regular, Menlo, monospace; text-anchor: middle; }
+    .edge { stroke: #475569; stroke-width: 2.2; stroke-linecap: round; }
+
+    /* Left Panel: Single Left Rotation (7s loop) */
+    .l-e1 { animation: le1 7s ease-in-out infinite; }
+    .l-e2 { animation: le2 7s ease-in-out infinite; }
+    .l-n10 { animation: ln10 7s ease-in-out infinite; }
+    .l-n20 { animation: ln20 7s ease-in-out infinite; }
+    .l-n30 { animation: ln30 7s ease-in-out infinite; }
+    .l-c10 { animation: lc10 7s ease-in-out infinite; }
+    .l-c20 { animation: lc20 7s ease-in-out infinite; }
+    .l-c30 { animation: lc30 7s ease-in-out infinite; }
+    .l-s1 { animation: ls1 7s ease-in-out infinite; }
+    .l-s2 { animation: ls2 7s ease-in-out infinite; }
+
+    @keyframes le1 { 0%, 35%, 96%, 100% { opacity: 1; } 45%, 90% { opacity: 0; } }
+    @keyframes le2 { 0%, 40%, 96%, 100% { opacity: 0; } 52%, 90% { opacity: 1; } }
+
+    @keyframes ln10 { 0%, 35%, 96%, 100% { transform: translate(130px, 75px); } 52%, 90% { transform: translate(115px, 145px); } }
+    @keyframes ln20 { 0%, 35%, 96%, 100% { transform: translate(190px, 145px); } 52%, 90% { transform: translate(190px, 75px); } }
+    @keyframes ln30 { 0%, 35%, 96%, 100% { transform: translate(250px, 210px); } 52%, 90% { transform: translate(265px, 145px); } }
+
+    @keyframes lc10 { 0%, 35%, 96%, 100% { fill: #7f1d1d; stroke: #ef4444; } 52%, 90% { fill: #064e3b; stroke: #10b981; } }
+    @keyframes lc20 { 0%, 35%, 96%, 100% { fill: #1e293b; stroke: #38bdf8; } 52%, 90% { fill: #064e3b; stroke: #10b981; } }
+    @keyframes lc30 { 0%, 35%, 96%, 100% { fill: #1e293b; stroke: #38bdf8; } 52%, 90% { fill: #064e3b; stroke: #10b981; } }
+
+    @keyframes ls1 { 0%, 38%, 96%, 100% { opacity: 1; } 44%, 92% { opacity: 0; } }
+    @keyframes ls2 { 0%, 42%, 96%, 100% { opacity: 0; } 48%, 90% { opacity: 1; } }
+
+    /* Right Panel: Double LR Rotation (9s loop) */
+    .r-e1 { animation: re1 9s ease-in-out infinite; }
+    .r-e2 { animation: re2 9s ease-in-out infinite; }
+    .r-e3 { animation: re3 9s ease-in-out infinite; }
+    .r-n30 { animation: rn30 9s ease-in-out infinite; }
+    .r-n10 { animation: rn10 9s ease-in-out infinite; }
+    .r-n20 { animation: rn20 9s ease-in-out infinite; }
+    .r-c30 { animation: rc30 9s ease-in-out infinite; }
+    .r-c10 { animation: rc10 9s ease-in-out infinite; }
+    .r-c20 { animation: rc20 9s ease-in-out infinite; }
+    .r-s1 { animation: rs1 9s ease-in-out infinite; }
+    .r-s2 { animation: rs2 9s ease-in-out infinite; }
+    .r-s3 { animation: rs3 9s ease-in-out infinite; }
+
+    @keyframes re1 { 0%, 26%, 96%, 100% { opacity: 1; } 32%, 92% { opacity: 0; } }
+    @keyframes re2 { 0%, 28%, 62%, 100% { opacity: 0; } 35%, 56% { opacity: 1; } }
+    @keyframes re3 { 0%, 58%, 96%, 100% { opacity: 0; } 66%, 91% { opacity: 1; } }
+
+    @keyframes rn30 { 0%, 56%, 96%, 100% { transform: translate(625px, 75px); } 66%, 91% { transform: translate(645px, 145px); } }
+    @keyframes rn10 { 0%, 26%, 96%, 100% { transform: translate(555px, 145px); } 35%, 56% { transform: translate(495px, 210px); } 66%, 91% { transform: translate(495px, 145px); } }
+    @keyframes rn20 { 0%, 26%, 96%, 100% { transform: translate(605px, 210px); } 35%, 56% { transform: translate(555px, 145px); } 66%, 91% { transform: translate(570px, 75px); } }
+
+    @keyframes rc30 { 0%, 56%, 96%, 100% { fill: #7f1d1d; stroke: #ef4444; } 66%, 91% { fill: #064e3b; stroke: #10b981; } }
+    @keyframes rc10 { 0%, 26%, 96%, 100% { fill: #78350f; stroke: #f59e0b; } 35%, 56% { fill: #1e293b; stroke: #38bdf8; } 66%, 91% { fill: #064e3b; stroke: #10b981; } }
+    @keyframes rc20 { 0%, 56%, 96%, 100% { fill: #1e293b; stroke: #38bdf8; } 66%, 91% { fill: #064e3b; stroke: #10b981; } }
+
+    @keyframes rs1 { 0%, 27%, 96%, 100% { opacity: 1; } 31%, 93% { opacity: 0; } }
+    @keyframes rs2 { 0%, 29%, 61%, 100% { opacity: 0; } 33%, 57% { opacity: 1; } }
+    @keyframes rs3 { 0%, 59%, 96%, 100% { opacity: 0; } 64%, 91% { opacity: 1; } }
+  </style>
+
+  <rect class="bg" x="1" y="1" width="758" height="278" />
+  <line class="divider" x1="380" y1="18" x2="380" y2="262" />
+
+  
+  <text class="title" x="190" y="30">Single Rotation: left_rotate(10)</text>
+
+  <g class="l-e1">
+    <line class="edge" x1="130" y1="75" x2="190" y2="145" />
+    <line class="edge" x1="190" y1="145" x2="250" y2="210" />
+  </g>
+  <g class="l-e2">
+    <line class="edge" x1="190" y1="75" x2="115" y2="145" />
+    <line class="edge" x1="190" y1="75" x2="265" y2="145" />
+  </g>
+
+  <g class="l-n10">
+    <circle class="l-c10" r="20" stroke-width="2.2" />
+    <text class="label">10</text>
+  </g>
+  <g class="l-n20">
+    <circle class="l-c20" r="20" stroke-width="2.2" />
+    <text class="label">20</text>
+  </g>
+  <g class="l-n30">
+    <circle class="l-c30" r="20" stroke-width="2.2" />
+    <text class="label">30</text>
+  </g>
+
+  <text class="status l-s1" x="190" y="255">1. Imbalanced: bf(10) = -2 (Right-Right)</text>
+  <text class="status l-s2" x="190" y="255">2. Balanced: 20 promoted to root (bf = 0)</text>
+
+  
+  <text class="title" x="570" y="30">Double Rotation: Left-Right (LR)</text>
+
+  <g class="r-e1">
+    <line class="edge" x1="625" y1="75" x2="555" y2="145" />
+    <line class="edge" x1="555" y1="145" x2="605" y2="210" />
+  </g>
+  <g class="r-e2">
+    <line class="edge" x1="625" y1="75" x2="555" y2="145" />
+    <line class="edge" x1="555" y1="145" x2="495" y2="210" />
+  </g>
+  <g class="r-e3">
+    <line class="edge" x1="570" y1="75" x2="495" y2="145" />
+    <line class="edge" x1="570" y1="75" x2="645" y2="145" />
+  </g>
+
+  <g class="r-n30">
+    <circle class="r-c30" r="20" stroke-width="2.2" />
+    <text class="label">30</text>
+  </g>
+  <g class="r-n10">
+    <circle class="r-c10" r="20" stroke-width="2.2" />
+    <text class="label">10</text>
+  </g>
+  <g class="r-n20">
+    <circle class="r-c20" r="20" stroke-width="2.2" />
+    <text class="label">20</text>
+  </g>
+
+  <text class="status r-s1" x="570" y="255">1. Zigzag: bf(30) = +2, bf(10) = -1</text>
+  <text class="status r-s2" x="570" y="255">2. left_rotate(10) -&gt; Left-Left line</text>
+  <text class="status r-s3" x="570" y="255">3. right_rotate(30) -&gt; Balanced (bf = 0)</text>
+</svg>
