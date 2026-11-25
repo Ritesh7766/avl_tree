@@ -5,7 +5,7 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Typed: mypy](https://img.shields.io/badge/mypy-strict-blue.svg)](https://mypy-lang.org/)
 
-A lightweight, strictly typed AVL tree implementation in Python with zero runtime dependencies. Every insertion and deletion preserves the AVL height invariant ($\lvert\text{balance factor}\rvert \le 1$), guaranteeing **$O(\log n)$** worst-case time complexity.
+A lightweight, strictly typed AVL tree implementation in Python with zero runtime dependencies. Every insertion and deletion preserves the AVL height invariant (`|balance factor| ≤ 1`), guaranteeing **`O(log n)`** worst-case time complexity.
 
 - **Functional API** — `insert` and `delete` return the updated root node; always reassign the returned reference.
 - **Strictly Typed** — Passes `mypy --strict` out of the box.
@@ -42,7 +42,7 @@ pre_order(root)
 
 ### 1. Single & Double Rotations
 
-When an update pushes a node's balance factor (`height(left) - height(right)`) outside `[-1, 0, 1]`, the tree rebalances locally in $O(1)$ time:
+When an update pushes a node's balance factor (`height(left) - height(right)`) outside `[-1, 0, 1]`, the tree rebalances locally in `O(1)` time:
 
 - **Single Rotation (`LL` / `RR`)** — Child leans in the same direction as the imbalance.
 - **Double Rotation (`LR` / `RL`)** — Child leans in the opposite direction (zigzag), requiring a child rotation first to straighten the path before rotating the root.
@@ -73,9 +73,9 @@ Removing a node updates subtree heights bottom-up and triggers rotations if an a
 
 | Operation | Average | Worst Case | Space |
 | :--- | :---: | :---: | :---: |
-| **Search / Traversal** | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ |
-| **Insert** | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ |
-| **Delete** | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ |
+| **Search / Traversal** | `O(log n)` | `O(log n)` | `O(log n)` |
+| **Insert** | `O(log n)` | `O(log n)` | `O(log n)` |
+| **Delete** | `O(log n)` | `O(log n)` | `O(log n)` |
 
 ### Public Functions
 
@@ -99,7 +99,3 @@ ruff check . && ruff format --check .   # lint and formatting
 mypy                                    # strict type checking
 pytest --cov                            # tests with coverage
 ```
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
